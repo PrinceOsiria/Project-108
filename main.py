@@ -358,9 +358,9 @@ def encode_hels(Alphabet, Keys, CipherText):
 
 
 ############################################################
-#ROT13 Decoder
+#ROT13
 #*returns lowercase cleartext
-def decode_rot13(CipherText):
+def rot13(CipherText):
   #Imports a thing 
   import codecs
 
@@ -450,7 +450,7 @@ def run_program():
     print("3. Hel's Labyrinth Encoder")
     print("4. XIO Decoder")
     print("5. XIO Encoder")
-    print("6. Rot13 Decoder")
+    print("6. Rot13")
     print("7. Close Hel's Keyhole ")
 
     program = input()
@@ -525,14 +525,14 @@ def run_program():
       print(decode_hels(Alphabet, Keys, CipherText))
       input()
 
-    #ROT13 DECODER
+    #ROT13
     elif program == "6":
       #Ask for user inputs
-      print("Ciphertext:")
+      print("Text:")
       CipherText = input().lower()
 
       #Run decoding program
-      print(decode_rot13(CipherText))
+      print(rot13(CipherText))
       input()
 
     #XIO DECODER
