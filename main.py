@@ -70,6 +70,7 @@ def brute_hels(Alphabet, Keys, CipherText):
   #Initializes Variables
   Keys = Keys.split()
   Combos = []
+  file = open(“testfile.txt”,”w”) 
 
   #Shuffles through combinations of keys
   x = 1
@@ -78,7 +79,9 @@ def brute_hels(Alphabet, Keys, CipherText):
       tmp = " ".join(list(i))
       foo = decode_hels(Alphabet, tmp, CipherText)
       print("\n" + "keys:" + str(tmp) + "|" + "result:" + str(foo))
+      file.write(“Hello World”)  
     x = x + 1
+  file.close()
 ############################################################
 
 
@@ -593,31 +596,7 @@ def run_program():
 
     #DEBUG/TESTING
     elif program == "~":
-      #Imports a thing
-      from itertools import permutations
-    
-      #Asks for user Inputs
-      print("Give me some keys bro")
-      Keys = input().lower()
-
-      #Initializes Variables
-      Alphabet = "tabcdefghijklmnopqrsuvwxyz"
-      CipherText = "debug"
-      Keys = clean_text(Keys.replace(" ", "~"), Alphabet)
-      Keys = Keys.replace("~", " ")
-      Keys = Keys.split()
-    
-      #The Keyhole
-      x = 1
-      while x <= len(Keys):
-        for i in permutations(Keys, x): 
-          tmp = " ".join(list(i))
-          foo = decode_hels(Alphabet, tmp, CipherText)
-          print("\n" + "keys:" + str(tmp) + "|" + "result:" + str(foo))
-        x = x + 1
-      input()
-    elif program == "~1":
-      #Imports a thing
+     #Imports a thing
      from itertools import permutations
   
      #Asks for user Inputs
