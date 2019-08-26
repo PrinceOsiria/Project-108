@@ -70,29 +70,15 @@ def brute_hels(Alphabet, Keys, CipherText):
   #Initializes Variables
   Keys = Keys.split()
   Combos = []
-  TextFile = open("Brute Force Results.txt", "a")
 
-  #Generates list of key combos
+  #Shuffles through combinations of keys
   x = 1
   while x <= len(Keys):
-    for i in permutations(Keys, x):
+    for i in permutations(Keys, x): 
       tmp = " ".join(list(i))
-      Combos.append(tmp)
+      foo = decode_hels(Alphabet, tmp, CipherText)
+      print("\n" + "keys:" + str(tmp) + "|" + "result:" + str(foo))
     x = x + 1
-
-  #Tries all key combos
-  y = 0
-  while y < len(Combos):
-    tmp = Combos[y]
-    foo = decode_hels(Alphabet, tmp, CipherText)
-
-    print("\n" + "keys:" + str(tmp) + "|" + "result:" + str(foo))
-    TextFile.write(("\n" + "keys:" + str(tmp) + "|" + "result:" + str(foo)))
-    
-    y = y + 1
-    
-  #Closes Textfile
-  TextFile.close()
 ############################################################
 
 
@@ -525,10 +511,10 @@ def run_program():
       print(decode_hels(Alphabet, Keys, CipherText))
       input()
 
-    #ROT13
+    #ROT13 DECODER
     elif program == "6":
       #Ask for user inputs
-      print("Text:")
+      print("Ciphertext:")
       CipherText = input().lower()
 
       #Run decoding program
@@ -615,36 +601,46 @@ def run_program():
       Keys = input().lower()
 
       #Initializes Variables
-      Alphabet = list("tabcdefghijklmnopqrsuvwxyz")
-      CipherText = "vtqgqmprvt"
-      Perhaps = "dearnumber"
-      Combos = []
+      Alphabet = "tabcdefghijklmnopqrsuvwxyz"
+      CipherText = "debug"
       Keys = clean_text(Keys.replace(" ", "~"), Alphabet)
       Keys = Keys.replace("~", " ")
       Keys = Keys.split()
     
-      #Generates list of key combos
+      #The Keyhole
       x = 1
       while x <= len(Keys):
-        for i in permutations(Keys, x):
+        for i in permutations(Keys, x): 
           tmp = " ".join(list(i))
-          Combos.append(tmp)
+          foo = decode_hels(Alphabet, tmp, CipherText)
+          print("\n" + "keys:" + str(tmp) + "|" + "result:" + str(foo))
         x = x + 1
-
-      #Tries all key combos
-      y = 0
-      while y < len(Combos):
-        tmp = Combos[y]
-        foo = decode_hels(Alphabet, tmp, CipherText)
-        
-
-        if foo == Perhaps:	
-          return "".join(("\n THIS CIPHER CAN BE FULLY DECODED WITH:\n ", tmp, "\n\n AND ALPHABET:\n", str("".join(alphabet)), "\n"))
-    
-        y = y + 1
-
-      print("Program has finished running")
       input()
+    elif program == "~1":
+      #Imports a thing
+     from itertools import permutations
+  
+     #Asks for user Inputs
+     print("Give me some keys bro")
+     Keys = input().lower()
+ 
+     #Initializes Variables
+     Combos = []
+     Alphabet = "tabcdefghijklmnopqrsuvwxyz"
+     Keys = clean_text(Keys.replace(" ", "~"), Alphabet)
+     Keys = Keys.replace("~", " ")
+     Keys = Keys.split()
+  
+     #Generates list of key combos
+     x = 1
+     while x <= len(Keys):
+       for i in permutations(Keys, x):
+         tmp = " ".join(list(i))
+         Combos.append(tmp)
+       x = x + 1
+ 
+     print( len(Combos),"Permutations")
+     input()
 ############################################################
 
 
