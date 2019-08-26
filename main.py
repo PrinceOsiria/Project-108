@@ -70,7 +70,7 @@ def brute_hels(Alphabet, Keys, CipherText):
   #Initializes Variables
   Keys = Keys.split()
   Combos = []
-  file = open(“testfile.txt”,”w”) 
+  file = open("testfile.txt","w") 
 
   #Shuffles through combinations of keys
   x = 1
@@ -79,7 +79,7 @@ def brute_hels(Alphabet, Keys, CipherText):
       tmp = " ".join(list(i))
       foo = decode_hels(Alphabet, tmp, CipherText)
       print("\n" + "keys:" + str(tmp) + "|" + "result:" + str(foo))
-      file.write(“Hello World”)  
+      file.write("\n" + "keys:" + str(tmp) + "|" + "result:" + str(foo))  
     x = x + 1
   file.close()
 ############################################################
