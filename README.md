@@ -1,3 +1,2 @@
-# Project108_module
+# Project108
 A toolkit for dimensional travelers
-*This branch is the module version, which is meant to be used in other python scripts
